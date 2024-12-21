@@ -1,9 +1,26 @@
 ﻿namespace Module9.Exceptions.Task9.Exercise1;
 
-internal class Program
+
+public class Program
 {
-    static void Main(string[] args)
+    public static void Main(string[] args)
     {
-        Console.WriteLine("Hello, World!");
+        Exception[] ArrExceptions = { new MyException("Возникло собственное исключение."), 
+                                    new DivideByZeroException(), 
+                                    new IndexOutOfRangeException(), 
+                                    new DirectoryNotFoundException(), 
+                                    new FileNotFoundException() };
+
+        for (int i = 0; i < ArrExceptions.Length; i++) 
+        {
+            try
+            {
+                throw ArrExceptions[i];
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Исключение {i + 1}: {ex.Message}");
+            }
+        }
     }
 }

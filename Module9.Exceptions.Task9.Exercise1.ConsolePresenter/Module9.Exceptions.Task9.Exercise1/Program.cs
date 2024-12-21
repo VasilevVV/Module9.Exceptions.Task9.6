@@ -22,5 +22,7 @@ public class Program
                 Console.WriteLine($"Исключение {i + 1}: {ex.Message}");
             }
         }
+
+        Console.ReadKey();
     }
 }
